@@ -14,7 +14,8 @@ router.get("/date", (req, res) => {
         // Parando o processamento e retornando o código de sucesso
         return res.status(200).json({
             error: false,
-            message: date.returnTime()
+            time: date.returnTime(),
+            date: date.returnDate()
         });
 
     }catch(err) {

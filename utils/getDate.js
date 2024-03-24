@@ -28,20 +28,15 @@ class GetDate {
 
         let time = {
             hour: currentTime.getHours(),
-            minute: currentTime.getMinutes(),
-            seconds: currentTime.getSeconds()
+            minutes: currentTime.getMinutes(),
         };
 
         if(time.hour < 10) {
             time.hour = `0${time.hour}`
         };
 
-        if(time.minute < 10) {
-            time.minute = `0${time.minute}`
-        };
-
-        if(time.seconds < 10) {
-            time.seconds = `0${time.seconds}`
+        if(time.minutes < 10) {
+            time.minutes = `0${time.minutes}`
         };
 
         return time;

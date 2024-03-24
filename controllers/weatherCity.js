@@ -8,7 +8,7 @@ const City = require("../utils/classCity");
 const CUSTOM_ERROR_CODES = require("../utils/errorCode");
 
 // Criado rota para buscar a data e o horário
-router.get("/searchCity", async (req, res) => {
+router.post("/weatherCity", async (req, res) => {
     try {
         // Obtendo os dados destruturados do corpo da requisição
         const { cityName } = req.body;

@@ -18,7 +18,7 @@ app.use(cors());
 
 // Importando as controllers
 dateRouter = require("./controllers/data");
-cityRouter = require("./controllers/city");
+cityRouter = require("./controllers/weatherCity");
 
 // Rotas
 app.use("/", dateRouter);
