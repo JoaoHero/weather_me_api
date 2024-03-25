@@ -18,11 +18,13 @@ app.use(cors());
 
 // Importando as controllers
 dateRouter = require("./controllers/data");
-cityRouter = require("./controllers/weatherCity");
+weatherCityRouter = require("./controllers/weatherCity");
+userWeatherLocation = require("./controllers/userWeatherLocation");
 
 // Rotas
 app.use("/", dateRouter);
-app.use("/", cityRouter);
+app.use("/", weatherCityRouter);
+app.use("/", userWeatherLocation);
 
 // Servidor rodando na porta: localhost:8080
 app.listen(port, () => {

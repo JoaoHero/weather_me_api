@@ -23,25 +23,22 @@ router.post("/weatherCity", async (req, res) => {
 
         // Instanciando a classe
         const city = new City();
-        // Criando uma váriavel e chamando o método da classe de buscar as coordenadas, e tratando os valores da promessa
-        const latitudeLongitude = await city.getLatitudeLongitude(cityName);
 
-        if (latitudeLongitude.error) {
+        const weather = await city.weather(cityName);
+
+        if(weather.error) {
+            // Parando o processamento e retornando o código de erro
             return res.status(404).json({
                 error: true,
-                message: "Erro ao buscar as coordenadas da cidade.",
-                cod: CUSTOM_ERROR_CODES.ZERO_RESULTS
+                message: "Cidade não localizada",
+                cod: CUSTOM_ERROR_CODES.ZERO_RESULTS,
             });
         };
-    
-        const { latitude, longitude } = latitudeLongitude;
-
-        const weather = await city.weather(latitude, longitude);
 
         // Parando o processamento e retornando o código de sucesso
         return res.status(200).json({
             error: false,
-            message: weather
+            weatherResult: weather
         });
 
     }catch(err) {
